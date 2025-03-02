@@ -98,8 +98,12 @@ function setupDropdown(toneSelector: HTMLDivElement) {
     optionsContainer.style.display = optionsContainer.style.display === 'block' ? 'none' : 'block'
   })
 
+  if (!optionsContainer) throw new Error('Options container not found')
+
   // Query all <li> elements within the optionsContainer and type them as HTMLLIElement
-  const options: NodeListOf<HTMLLIElement> = optionsContainer.querySelectorAll('li')
+  const options: NodeListOf<HTMLLIElement> = optionsContainer?.querySelectorAll('li')
+
+  if (!options) throw new Error('Options not found')
 
   // Handle option selection using arrow functions
   options.forEach((option: HTMLLIElement) => {
