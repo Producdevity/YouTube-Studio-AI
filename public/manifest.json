@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Studio AI",
+  "version": "1.0.0",
+  "description": "YouTube Studio AI is a browser extension that uses AI to help you manage your YouTube channel.",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["https://studio.youtube.com/*"]
+    }
+  ],
+  "permissions": ["identity", "storage"]
+}
